@@ -75,11 +75,11 @@ if page == "Sales Overview":
 
     st.plotly_chart(fig, use_container_width=True)
 
-    monthly_sales = (
-        df.groupby(pd.Grouper(key="Order Date", freq="M"))["Sales"]
-        .sum()
-        .reset_index()
-    )
+   monthly_sales = (
+    df.groupby(pd.Grouper(key="Order Date", freq="MS"))["Sales"]
+    .sum()
+    .reset_index()
+)
 
     fig2 = px.line(
         monthly_sales,
@@ -120,12 +120,11 @@ elif page == "Forecast Explorer":
 
     st.header("📈 Sales Forecast")
 
-    monthly = (
-        df.groupby(pd.Grouper(key="Order Date", freq="M"))["Sales"]
-        .sum()
-        .reset_index()
-    )
-
+   monthly = (
+    df.groupby(pd.Grouper(key="Order Date", freq="MS"))["Sales"]
+    .sum()
+    .reset_index()
+)
     prophet_df = monthly.rename(
         columns={
             "Order Date": "ds",
@@ -136,12 +135,10 @@ elif page == "Forecast Explorer":
     model = Prophet()
     model.fit(prophet_df)
 
-    future = model.make_future_dataframe(periods=6, freq="M")
+    future = model.make_future_dataframe(periods=6, freq="MS")
     forecast = model.predict(future)
 
-    fig1 = model.plot(forecast)
-    st.pyplot(fig1)
-
+    st.pyplot(fig1, clear_figure=True)
     st.subheader("Next 6 Months Forecast")
 
     st.dataframe(
