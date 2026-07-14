@@ -1,4 +1,13 @@
+
 # 📊 End-to-End Sales Forecasting & Demand Intelligence System
+
+### Predict • Forecast • Detect • Visualize • Optimize
+
+An end-to-end retail sales forecasting solution powered by **Python**, **SARIMA**, **Prophet**, **XGBoost**, **Machine Learning**, and **Streamlit**.
+
+</div>
+
+---
 
 <div align="center">
 
@@ -11,8 +20,6 @@
 ![Status](https://img.shields.io/badge/Project-Completed-success)
 
 </div>
-
----
 
 ## 📌 Project Overview
 
