@@ -75,11 +75,11 @@ if page == "Sales Overview":
 
     st.plotly_chart(fig, use_container_width=True)
 
-   monthly_sales = (
-    df.groupby(pd.Grouper(key="Order Date", freq="MS"))["Sales"]
-    .sum()
-    .reset_index()
-)
+    monthly_sales = (
+        df.groupby(pd.Grouper(key="Order Date", freq="MS"))["Sales"]
+        .sum()
+        .reset_index()
+    )
 
     fig2 = px.line(
         monthly_sales,
